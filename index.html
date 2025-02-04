@@ -3,21 +3,47 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Space Tourism Website" />
 
         <link rel="icon" type="image/png" sizes="32x32" href="./src/assets/favicon-32x32.png" />
+        <link rel="stylesheet" href="./src/css/main.css" type="text/css" media="all" />
 
         <script defer src="./src/js/controllers/App.js"></script>
         <title>Space tourism website</title>
     </head>
     <body>
-        <div>00 Home</div>
-        <div>01 Destination</div>
-        <div>02 Crew</div>
-        <div>03 Technology</div>
+        <div class="container">
+            <header class="header">
+                <a href="/" class="header__logo">
+                    <img src="./src/assets/shared/logo.svg" alt="Website Logo" />
+                    <span class="line"></span>
+                </a>
+
+                <nav class="header__nav">
+                    <ul class="nav__list">
+                        <li class="nav__link">
+                            <a href="/"><span>00</span> Home</a>
+                        </li>
+                        <li class="nav__link">
+                            <a href="/"><span>01</span> Destination</a>
+                        </li>
+                        <li class="nav__link">
+                            <a href="/"><span>02</span> Crew</a>
+                        </li>
+                        <li class="nav__link">
+                            <a href="/"><span>03</span> Technology</a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
         <div>
             So, you want to travel to
             <p>Space</p>
         </div>
+
+
 
         <div>
             <p>

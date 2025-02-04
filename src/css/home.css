@@ -59,13 +59,13 @@ body {
     display: flex;
     align-items: center;
     border-bottom: 2px solid var(--white);
-    letter-spacing: 2px;
 }
 
 .nav__link a {
     font-size: var(--text-14);
     text-transform: uppercase;
     text-decoration: none;
+    letter-spacing: var(--space-2);
 }
 
 .nav__link span {
