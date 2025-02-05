@@ -40,6 +40,10 @@
     height: 100%;
     background-color: rgb(255, 255, 255, 0.02);
     backdrop-filter: blur(20px);
+    -webkit-webkit-backdrop-filter: blur(20px);
+    -moz-webkit-backdrop-filter: blur(20px);
+    -ms-webkit-backdrop-filter: blur(20px);
+    -o-webkit-backdrop-filter: blur(20px);
     z-index: 1;
 }
 
@@ -47,10 +51,12 @@
     height: 100%;
     display: flex;
     align-items: center;
+    border-bottom: 3px solid transparent;
 }
 
 .nav__link.active {
-    border-bottom: 2px solid var(--white);
+    border-bottom: 3px solid var(--white);
+    transition: border-bottom 0.3s ease;
 }
 
 .nav__link a {
@@ -90,17 +96,49 @@
     pointer-events: none;
 }
 
-/* // 758px // */ /* // Tablet */
-@media screen and (max-width: 47.375em) {
+/* 1200px-75em */
+@media screen and (max-width: 75em) {
+    .nav__list {
+        padding: 0 var(--space-64);
+    }
+}
+
+/* 900px-56.25em */
+@media screen and (max-width: 56.25em) {
     .header {
-        padding: var(--space-8) var(--space-24);
-        position: sticky;
-        top: 0;
-        z-index: 999;
+        padding-left: var(--space-24);
+        margin: 0;
+    }
+
+    .header__logo {
+        width: 10%;
+    }
+
+    .header__nav {
+        width: 90%;
     }
 
     .line {
         display: none;
+    }
+
+    .nav__list {
+        background-color: var(--blue-900-light);
+        backdrop-filter: none;
+        -webkit-webkit-backdrop-filter: none;
+        -moz-webkit-backdrop-filter: none;
+        -ms-webkit-backdrop-filter: none;
+        -o-webkit-backdrop-filter: none;
+    }
+}
+
+/* // 758px // */ /* // Tablet */
+@media screen and (max-width: 47.375em) {
+    .header {
+        padding: 0 var(--space-24);
+        position: sticky;
+        top: 0;
+        z-index: 999;
     }
 
     .header__menu,
@@ -144,6 +182,12 @@
         justify-content: start;
         row-gap: var(--space-40);
         padding: 10rem 0 0 var(--space-24);
+        background-color: rgb(255, 255, 255, 0.02);
+        backdrop-filter: blur(20px);
+        -webkit-webkit-backdrop-filter: blur(20px);
+        -moz-webkit-backdrop-filter: blur(20px);
+        -ms-webkit-backdrop-filter: blur(20px);
+        -o-webkit-backdrop-filter: blur(20px);
     }
 
     .nav__link {
@@ -151,10 +195,9 @@
         width: 100%;
         align-items: start;
     }
-    
+
     .nav__link.active {
         border-bottom: 0;
         border-right: 3px solid var(--white);
-        
     }
 }

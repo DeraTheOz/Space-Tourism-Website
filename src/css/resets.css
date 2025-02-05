@@ -14,6 +14,7 @@
     --white: rgb(255, 255, 255);
     --blue-300: rgb(208, 214, 249);
     --blue-900: rgb(11, 13, 23);
+    --blue-900-light: rgb(25, 27, 39);
 
     /* TYPOGRAPHY */
     --bellefair-regular: 'Bellefair', serif;
@@ -114,6 +115,10 @@ h4 {
     text-wrap: balance;
 }
 
+p {
+    text-wrap: pretty;
+}
+
 /* A elements that don't have a class get default styles */
 a:not([class]) {
     text-decoration-skip-ink: auto;
@@ -136,11 +141,6 @@ select {
     font-size: inherit;
 }
 
-/* Make sure textareas without a rows attribute are not tiny */
-textarea:not([rows]) {
-    min-height: 10em;
-}
-
 /* Anything that has been anchored to should have extra scroll margin */
 :target {
     scroll-margin-block: 5ex;
@@ -154,6 +154,10 @@ body {
     color: var(--white);
     min-height: 100svh;
     line-height: 1.5;
+
+    background-image: url('../assets/home/background-home-desktop.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .menu__icon {
@@ -166,4 +170,11 @@ body {
     width: 20px;
     height: 21px;
     fill: var(--blue-300);
+}
+
+/* 900px-56.25em */
+@media screen and (max-width: 56.25em) {
+    body {
+        background-image: url('../assets/home/background-home-tablet.jpg');
+    }
 }
