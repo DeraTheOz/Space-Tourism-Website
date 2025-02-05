@@ -155,3 +155,15 @@ body {
     min-height: 100svh;
     line-height: 1.5;
 }
+
+.menu__icon {
+    width: 24px;
+    height: 21px;
+    fill: var(--blue-300);
+}
+
+.menu__icon--close {
+    width: 20px;
+    height: 21px;
+    fill: var(--blue-300);
+}
