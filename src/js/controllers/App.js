@@ -1,3 +1,7 @@
-import Router from '../router/Router';
+import * as Header from '../utils/header-actions.js';
 
-console.log(Router);
+const init = () => {
+    Header.handleMenuButtonClicks();
+    Header.handleNavLinksClick();
+};
+init();
