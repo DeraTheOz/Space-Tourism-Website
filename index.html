@@ -22,37 +22,53 @@
                 <nav class="header__nav">
                     <ul class="nav__list">
                         <li class="nav__link">
-                            <a href="/"><span>00</span> Home</a>
+                            <a href="#"><span>00</span> Home</a>
                         </li>
                         <li class="nav__link">
-                            <a href="/"><span>01</span> Destination</a>
+                            <a href="#"><span>01</span> Destination</a>
                         </li>
                         <li class="nav__link">
-                            <a href="/"><span>02</span> Crew</a>
+                            <a href="#"><span>02</span> Crew</a>
                         </li>
                         <li class="nav__link">
-                            <a href="/"><span>03</span> Technology</a>
+                            <a href="#"><span>03</span> Technology</a>
                         </li>
                     </ul>
                 </nav>
+
+                <nav class="header__menu">
+                    <button type="button" id="open" class="menu__button" aria-label="Open Menu">
+                        <svg class="menu__icon" aria-hidden="true">
+                            <use xlink:href="./src/assets/shared/icon-hamburger.svg#icon-hamburger"></use>
+                        </svg>
+                    </button>
+                    <button type="button" id="close" class="menu__button" aria-label="Close Menu" hidden>
+                        <svg class="menu__icon--close" aria-hidden="true">
+                            <use xlink:href="./src/assets/shared/icon-close.svg#icon-close"></use>
+                        </svg>
+                    </button>
+                </nav>
             </header>
+
+            <main>
+                <section class="hero">
+                    <p class="hero__tag">So, you want to travel to</p>
+                    <div class="hero__container">
+                        <div class="hero__box">
+                            <h1 class="hero__title">Space</h1>
+                            <p class="hero__summary">
+                                Let’s face it; if you want to go to space, you might as well genuinely go to outer space
+                                and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you
+                                a truly out of this world experience!
+                            </p>
+                        </div>
+
+                        <div class="hero__button--box">
+                            <button type="button" class="cta-btn hero__btn">Explore</button>
+                        </div>
+                    </div>
+                </section>
+            </main>
         </div>
-
-        <div>
-            So, you want to travel to
-            <p>Space</p>
-        </div>
-
-
-
-        <div>
-            <p>
-                Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover
-                kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world
-                experience!
-            </p>
-        </div>
-
-        <div>Explore</div>
     </body>
 </html>
