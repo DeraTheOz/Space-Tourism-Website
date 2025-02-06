@@ -13,6 +13,7 @@
     /* COLORS */
     --white: rgb(255, 255, 255);
     --blue-300: rgb(208, 214, 249);
+    --blue-300-light: rgba(208, 214, 249, 0.3);
     --blue-900: rgb(11, 13, 23);
     --blue-900-light: rgb(25, 27, 39);
 
@@ -28,44 +29,22 @@
     --text-28: 1.75rem;
     --text-32: 2rem;
     --text-56: 3.5rem;
+    --text-80: 5rem;
     --text-100: 6.25rem;
     --text-144: 9rem;
 
     /* SPACING */
-    /* 1600 */
     --space-128: 8rem;
-
-    /*1200 */
     --space-96: 6rem;
-
-    /* 1000 */
     --space-80: 5rem;
-
-    /* 800 */
     --space-64: 4rem;
-
-    /* 600 */
     --space-48: 3rem;
-
-    /* 500 */
     --space-40: 2.5rem;
-
-    /* 300 */
     --space-24: 1.5rem;
-
-    /* 200 */
     --space-16: 1rem;
-
-    /* 150 */
     --space-12: 0.75rem;
-
-    /* 100 */
     --space-8: 0.5rem;
-
-    /* 50 */
     --space-4: 0.25rem;
-
-    /* 25 */
     --space-2: 0.125rem;
 }
 
@@ -154,10 +133,10 @@ body {
     color: var(--white);
     min-height: 100svh;
     line-height: 1.5;
-
     background-image: url('../assets/home/background-home-desktop.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center center;
 }
 
 .menu__icon {
@@ -172,9 +151,16 @@ body {
     fill: var(--blue-300);
 }
 
-/* 900px-56.25em */
-@media screen and (max-width: 56.25em) {
+/* 1100px-68.75em */
+@media screen and (max-width: 68.75em) {
     body {
         background-image: url('../assets/home/background-home-tablet.jpg');
+    }
+}
+
+/* 600px-37.5em */
+@media screen and (max-width: 37.5em) {
+    body {
+        background-image: url('../assets/home/background-home-mobile.jpg');
     }
 }
