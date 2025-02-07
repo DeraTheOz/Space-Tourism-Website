@@ -133,10 +133,6 @@ body {
     color: var(--white);
     min-height: 100svh;
     line-height: 1.5;
-    background-image: url('../assets/home/background-home-desktop.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
 }
 
 .menu__icon {
@@ -149,18 +145,4 @@ body {
     width: 20px;
     height: 21px;
     fill: var(--blue-300);
-}
-
-/* 1100px-68.75em */
-@media screen and (max-width: 68.75em) {
-    body {
-        background-image: url('../assets/home/background-home-tablet.jpg');
-    }
-}
-
-/* 600px-37.5em */
-@media screen and (max-width: 37.5em) {
-    body {
-        background-image: url('../assets/home/background-home-mobile.jpg');
-    }
 }
