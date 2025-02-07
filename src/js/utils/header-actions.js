@@ -7,23 +7,22 @@ export const handleMenuButtonClicks = () => {
         nav.classList.add('open');
         openButton.hidden = true;
         closeButton.hidden = false;
-        // document.addEventListener('click', handleOutsideClick);
+        document.addEventListener('click', handleOutsideClick);
     };
 
     const hideNav = () => {
         nav.classList.remove('open');
         openButton.hidden = false;
         closeButton.hidden = true;
-        // document.addEventListener('click', handleOutsideClick);
+        document.addEventListener('click', handleOutsideClick);
     };
 
-    // const handleOutsideClick = event => {
-    //     console.log(event);
-    //     const isClickedInsideNav = nav.contains(event.target);
-    //     const isClickedOnButton = openButton.contains(event.target) || closeButton.contains(event.target);
+    const handleOutsideClick = event => {
+        const isClickedInsideNav = nav.contains(event.target);
+        const isClickedOnButton = openButton.contains(event.target) || closeButton.contains(event.target);
 
-    //     if (!isClickedInsideNav && !isClickedOnButton) hideNav();
-    // };
+        if (!isClickedInsideNav && !isClickedOnButton) hideNav();
+    };
 
     openButton.addEventListener('click', showNav);
     closeButton.addEventListener('click', hideNav);
