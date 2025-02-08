@@ -1,37 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Embark on a journey of Space Exploration. Get to know more about space from your comfort zone with 
+            seamless navigation across pages and detailed insights of each Planet, 
+            Crew members that first explored the planet, and the kind of Technology they used"
+        />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Space tourism website</title>
-</head>
-<body>
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png" />
+        <link rel="stylesheet" href="../../css/destination.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="../../css/main.css" type="text/css" media="all" />
 
-  00 Home
-  01 Destination
-  02 Crew
-  03 Technology
+        <script defer src="../../js/controllers/App.js"></script>
+        <title>Frontend Mentor | Space tourism website</title>
+    </head>
+    <body>
+        <div class="container">
+            <header class="header">
+                <a href="#" class="header__logo">
+                    <img src="../../assets/shared/logo.svg" alt="Logo" />
+                    <span class="line"></span>
+                </a>
 
-  01 Pick your destination
+                <nav class="header__nav">
+                    <ul class="nav__list">
+                        <li class="nav__link">
+                            <a href="../../../index.html"><span>00</span> Home</a>
+                        </li>
+                        <li class="nav__link">
+                            <a href="#"><span>01</span> Destination</a>
+                        </li>
+                        <li class="nav__link">
+                            <a href="#"><span>02</span> Crew</a>
+                        </li>
+                        <li class="nav__link">
+                            <a href="#"><span>03</span> Technology</a>
+                        </li>
+                    </ul>
+                </nav>
 
-  Moon
-  Mars
-  Europa
-  Titan
+                <nav class="header__menu">
+                    <button type="button" id="open" class="menu__button" aria-label="Open Menu">
+                        <svg class="menu__icon" aria-hidden="true">
+                            <use xlink:href="../../assets/shared/icon-hamburger.svg#icon-hamburger"></use>
+                        </svg>
+                    </button>
+                    <button type="button" id="close" class="menu__button" aria-label="Close Menu" hidden>
+                        <svg class="menu__icon--close" aria-hidden="true">
+                            <use xlink:href="../../assets/shared/icon-close.svg#icon-close"></use>
+                        </svg>
+                    </button>
+                </nav>
+            </header>
 
-  Titan
+            <main id="main">
+                <section class="crew__hero">
+                    <p class="destination__intro"><span class="destination__step">01</span> Pick your destination</p>
+                    <div class="destination__container">
+                        <div class="destination__image--box">
+                            <img
+                                class="destination__image"
+                                src="../../assets/destination/image-moon.png"
+                                alt="Full Moon Image"
+                            />
+                        </div>
+                        <div class="destination__details">
+                            <ul class="destination__list">
+                                <li class="destination__item">Moon</li>
+                                <li class="destination__item">Mars</li>
+                                <li class="destination__item destination__item--active">Europa</li>
+                                <li class="destination__item">Titan</li>
+                            </ul>
 
-  The only moon known to have a dense atmosphere other than Earth, Titan 
-  is a home away from home (just a few hundred degrees colder!). As a 
-  bonus, you get striking views of the Rings of Saturn.
+                            <h1 class="destination__title">Titan</h1>
+                            <p class="destination__summary">
+                                The only moon known to have a dense atmosphere other than Earth, Titan is a home away
+                                from home (just a few hundred degrees colder!). As a bonus, you get striking views of
+                                the Rings of Saturn.
+                            </p>
 
-  Avg. distance
-  1.6 bil. km
+                            <div class="summary__line"></div>
 
-  Est. travel time
-  7 years
-</body>
+                            <div class="destination__statistics">
+                                <p class="destination__distance">Avg. distance <span>1.6 bil. km</span></p>
+                                <p class="destination__time">Est. travel time <span>7 years</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        Avg. distance Est. travel time
+    </body>
 </html>
