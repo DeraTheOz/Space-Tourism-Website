@@ -30,7 +30,6 @@ export const handleMenuButtonClicks = () => {
 
 export const handleNavLinksClick = () => {
     const navLinks = document.querySelectorAll('.nav__link');
-    navLinks[0].classList.add('active');
 
     navLinks.forEach(navItem => {
         navItem.addEventListener('click', () => {
