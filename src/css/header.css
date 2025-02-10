@@ -70,6 +70,7 @@
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: var(--space-2);
+    width: 100%;
     outline: var(--blue-300);
     cursor: pointer;
 }
