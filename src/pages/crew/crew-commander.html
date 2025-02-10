@@ -18,7 +18,7 @@
 
         <title>Space tourism website</title>
     </head>
-    <body>
+    <body class="crew">
         <div class="container">
             <header class="header">
                 <a href="#" class="header__logo">
@@ -32,13 +32,13 @@
                             <a href="../../../index.html"><span>00</span> Home</a>
                         </li>
                         <li class="nav__link">
-                            <a href="#"><span>01</span> Destination</a>
+                            <a href="../destination/destination-moon.html"><span>01</span> Destination</a>
                         </li>
-                        <li class="nav__link">
+                        <li class="nav__link active">
                             <a href="#"><span>02</span> Crew</a>
                         </li>
                         <li class="nav__link">
-                            <a href="#"><span>03</span> Technology</a>
+                            <a href="../technology/technology-vehicle.html"><span>03</span> Technology</a>
                         </li>
                     </ul>
                 </nav>
@@ -58,35 +58,31 @@
             </header>
 
             <main id="main">
-                <section class="destination__hero">
-                    <p class="destination__intro"><span class="destination__step">02</span> Meet your crew</p>
-                    <div class="destination__container">
-                        <div class="destination__image--box">
-                            <img
-                                class="destination__image"
-                                src="../../assets/destination/image-moon.png"
-                                alt="Full Moon Image"
-                            />
-                        </div>
-                        <div class="destination__details">
-                            <ul class="destination__list">
-                                <li class="destination__item destination__item--active">Moon</li>
-                                <li class="destination__item">Mars</li>
-                                <li class="destination__item">Europa</li>
-                                <li class="destination__item">Titan</li>
-                            </ul>
-
-                            <h1 class="destination__title">Commander Douglas Hurley</h1>
-                            <p class="destination__summary">
+                <section class="crew__hero">
+                    <p class="crew__intro"><span class="crew__step">02</span> Meet your crew</p>
+                    <div class="crew__container">
+                        <div class="crew__details">
+                            <p class="crew__role">Commander</p>
+                            <h1 class="crew__name">Douglas Hurley</h1>
+                            <p class="crew__summary">
                                 Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA
                                 astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.
                             </p>
 
-                            <div class="summary__line"></div>
-
-                            <div class="destination__statistics">
-                                <p class="destination__distance">Avg. distance <span>384,400 km</span></p>
-                                <p class="destination__time">Est. travel time <span>3 days</span></p>
+                            <ul class="crew__slides">
+                                <li class="slide slide--active"></li>
+                                <li class="slide"></li>
+                                <li class="slide"></li>
+                                <li class="slide"></li>
+                            </ul>
+                        </div>
+                        <div class="crew__image--box">
+                            <div>
+                                <img
+                                    class="crew__image"
+                                    src="../../assets/crew/image-douglas-hurley.png"
+                                    alt="Crew Commander Douglas Hurley"
+                                />
                             </div>
                         </div>
                     </div>
