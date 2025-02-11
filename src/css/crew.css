@@ -14,6 +14,9 @@
 }
 
 .crew__intro {
+    display: flex;
+    align-items: center;
+    gap: var(--space-16);
     font-size: var(--text-28);
     font-family: var(--barlow-condensed-regular);
     color: var(--white);
