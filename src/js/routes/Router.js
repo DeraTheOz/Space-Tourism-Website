@@ -1,5 +1,9 @@
-import { renderDestination } from '../views/destination.js';
+// import { renderDestination } from '../views/destination.js';
 import { renderHome } from '../views/home.js';
+
+import destinationView from '../views/destination.js';
+// const renderDestination = destinationView.renderDestination('moon');
+// console.log(renderDestination());
 
 const routes = {
     '/': {
@@ -8,7 +12,8 @@ const routes = {
     },
 
     '/destination': {
-        view: renderDestination,
+        view: destinationView.renderDestination,
+        // view: destinationView,
         className: 'destination'
     }
 };
@@ -20,10 +25,11 @@ const navigateTo = function (path) {
 
 const updateView = function () {
     const route = routes[window.location.pathname] || routes['/'];
-    
 
-    document.getElementById('main').innerHTML = route.view();
+    document.getElementById('main').innerHTML = route.view('moon');
     document.body.className = route.className;
+
+    // destinationView();
 };
 
 export const initRoutes = () => {
