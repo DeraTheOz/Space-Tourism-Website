@@ -74,8 +74,9 @@
     border-bottom: 2px solid var(--white);
 }
 
-.destination__item--active {
+.destination__item.active {
     color: var(--white);
+    opacity: 1;
     border-bottom: 2px solid var(--white);
 }
 
