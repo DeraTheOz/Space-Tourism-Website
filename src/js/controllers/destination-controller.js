@@ -2,10 +2,8 @@ import dataModel from '../models/data-model.js';
 
 const destinationController = function () {
     const init = () => {
-        const destinations = dataModel.getDestination();
-        console.log(destinations);
-
-        eventListeners();
+        // const destinations = dataModel.getDestinations();
+        // console.log(destinations);
     };
 
     const eventListeners = () => {
@@ -15,18 +13,18 @@ const destinationController = function () {
         navLinks.forEach(navItem => {
             navItem.addEventListener('click', e => {
                 const clickedLink = e.target.textContent.slice(3).toLowerCase();
+                console.log(clickedLink);
 
-                if (clickedLink === 'destination') {
-                    const destinationItems = mainContent.querySelectorAll('.destination__item');
-                    console.log(destinationItems);
+                if (clickedLink !== 'destination') return;
+                const destinationItems = mainContent.querySelector('.destination__list');
+                console.log(destinationItems);
 
-                    destinationItems.forEach(item => {
-                        item.addEventListener('click', e => {
-                            if (e.target.textContent === 'Moon') {
-                            }
-                        });
-                    });
-                }
+                // destinationItems.forEach(destination => {
+                //     destination.addEventListener('click', () => {
+                //         destinationItems.forEach(item => item.classList.remove('destination__item--active'));
+                //         destination.classList.add('destination__item--active');
+                //     });
+                // });
             });
         });
     };
