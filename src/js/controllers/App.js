@@ -8,7 +8,7 @@ const init = () => {
     Header.handleNavLinksClick();
 
     initRoutes();
-    
-    destinationController.init()
+
+    destinationController.init();
 };
 init();
