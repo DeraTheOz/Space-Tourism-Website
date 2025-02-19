@@ -1,17 +1,7 @@
 import data from '../../../data.json';
 
-/**
- * Transforms the array into an object for easier lookup.
- * Example output:
- * {
- *   moon: { ...moonData },
- *   mars: { ...marsData },
- *   europa: { ...europaData },
- *   titan: { ...titanData }
- * }
- */
 const dataModel = function () {
-    const newDestinations = () => {
+    const getDestinations = () => {
         return data.destinations.reduce((acc, destination) => {
             const key = destination.name.toLowerCase();
             acc[key] = destination;
@@ -19,19 +9,25 @@ const dataModel = function () {
         }, {});
     };
 
-    const getDestinations = () => {
-        return data.destinations;
-    };
-
     const getCrew = () => {
-        return data.crew;
+        return data.crew.reduce((acc, member) => {
+            const key = member.name.toLowerCase().replace(/\s+/g, '-');
+            console.log(key);
+            acc[key] = member;
+            return acc;
+        }, {});
     };
 
     const getTechnology = () => {
-        return data.technology;
+        return data.technology.reduce((acc, tech) => {
+            const key = tech.name.toLowerCase().replace(/\s+/g, '-');
+            console.log(key);
+            acc[key] = tech;
+            return acc;
+        }, {});
     };
 
-    return { newDestinations, getDestinations, getCrew, getTechnology };
+    return { getDestinations, getCrew, getTechnology };
 };
 
 export default dataModel();
