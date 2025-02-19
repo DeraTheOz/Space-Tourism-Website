@@ -1,5 +1,10 @@
-export function renderHome () {
-    return `
+import Router from '../routes/Router.js';
+
+const homeView = function () {
+    const render = () => {
+        document.body.className = 'home';
+
+        document.querySelector('main').innerHTML = `
         <section class="hero">
             <p class="hero__intro">So, you want to travel to</p>
             <div class="hero__container">
@@ -11,11 +16,27 @@ export function renderHome () {
                         a truly out of this world experience!
                     </p>
                 </div>
-
+    
                 <div class="hero__button--box">
                     <button type="button" class="cta-btn hero__btn">Explore</button>
                 </div>
             </div>
         </section>
-    `
-}
+    `;
+
+        // Route to destination
+        const exploreBtn = document.querySelector('.hero__btn');
+        const navLinks = document.querySelectorAll('.nav__link');
+
+        exploreBtn.addEventListener('click', () => {
+            Router.navigateTo('/destination');
+
+            navLinks.forEach(item => item.classList.remove('active'));
+            navLinks[1].classList.add('active');
+        });
+    };
+
+    return { render };
+};
+
+export default homeView();
