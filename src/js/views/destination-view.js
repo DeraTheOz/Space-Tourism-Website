@@ -1,3 +1,4 @@
+import dataModel from '../models/data-model.js';
 import imageMoonPng from '../../assets/destination/image-moon.png';
 import imageMoonWebp from '../../assets/destination/image-moon.webp';
 import imageMarsPng from '../../assets/destination/image-mars.png';
@@ -6,21 +7,23 @@ import imageEuropaPng from '../../assets/destination/image-europa.png';
 import imageEuropaWebp from '../../assets/destination/image-europa.webp';
 import imageTitanPng from '../../assets/destination/image-titan.png';
 import imageTitanWebp from '../../assets/destination/image-titan.webp';
-import dataModel from '../models/data-model.js';
 
 const images = {
-    moon: imageMoonWebp || imageMoonPng,
-    mars: imageMarsWebp || imageMarsPng,
-    europa: imageEuropaWebp || imageMarsPng,
-    titan: imageTitanWebp || imageTitanPng
+    moon: { png: imageMoonPng, webp: imageMoonWebp },
+    mars: { png: imageMarsPng, webp: imageMarsWebp },
+    europa: { png: imageEuropaPng, webp: imageEuropaWebp },
+    titan: { png: imageTitanPng, webp: imageTitanWebp }
 };
 
+const destinations = dataModel.getDestinations();
+
 const destinationView = function () {
-    const destinations = dataModel.getDestinations();
-
     const render = (destinationName = 'moon') => {
-        const destination = destinations[destinationName.toLowerCase()] || destinations.moon;
-
+        const destination = destinations[destinationName.toLowerCase()] || destinations['moon'];
+        if (!destination) {
+            console.error(`Destination ${destinationName} not found.`);
+            return null;
+        }
         document.body.className = 'destination';
 
         document.querySelector('main').innerHTML = `
@@ -29,10 +32,14 @@ const destinationView = function () {
                 
                 <div class="destination__container">
                     <div class="destination__image--box">
-                        <img class="destination__image"
-                            src="${images[destinationName]}"
-                            alt="${destination.name}"
-                        />
+                        <picture>
+                            <source srcset="${images[destinationName].webp}" type="image/webp">
+                            <img class="destination__image" 
+                                src="${images[destinationName].png}" 
+                                alt="${destination.name}"
+                            />
+                        </picture>
+                        
                     </div>
         
                     <div class="destination__details">
@@ -61,20 +68,19 @@ const destinationView = function () {
                 </div>
             </section>
         `;
-
-        handleDestinationClick();
     };
 
     const handleDestinationClick = () => {
-        const destinationList = document.querySelector('.destination__list');
+        document.querySelector('main').addEventListener('click', e => {
+            if (!e.target.classList.contains('destination__item')) return;
 
-        destinationList.addEventListener('click', e => {
             const selectedDestination = e.target.dataset.destination;
             if (!selectedDestination) return;
 
             render(selectedDestination);
         });
     };
+    handleDestinationClick();
 
     return { render };
 };
