@@ -19,59 +19,89 @@ const destinations = dataModel.getDestinations();
 
 const destinationView = function () {
     const render = (destinationName = 'moon') => {
-        const destination = destinations[destinationName.toLowerCase()] || destinations['moon'];
-        if (!destination) {
-            console.error(`Destination ${destinationName} not found.`);
-            return null;
-        }
-        document.body.className = 'destination';
+        const main = document.querySelector('main');
+        const destinationContainer = document.querySelector(
+            '.destination__container'
+        );
 
-        document.querySelector('main').innerHTML = `
+        const destination =
+            destinations[destinationName.toLowerCase()] || destinations['moon'];
+
+        if (!destinationContainer) {
+            document.body.className = 'destination';
+
+            main.innerHTML = `
             <section class="destination__hero">
                 <p class="destination__intro"><span class="destination__step">01</span> Pick your destination</p>
                 
                 <div class="destination__container">
-                    <div class="destination__image--box">
-                        <picture>
-                            <source srcset="${images[destinationName].webp}" type="image/webp">
-                            <img class="destination__image" 
-                                src="${images[destinationName].png}" 
-                                alt="${destination.name}"
-                            />
-                        </picture>
-                        
-                    </div>
-        
-                    <div class="destination__details">
-                        <ul class="destination__list">${Object.values(destinations)
-                            .map(
-                                dest => `
-                            <li class="destination__item ${
-                                dest.name.toLowerCase() === destinationName.toLowerCase() ? 'active' : ''
-                            }" data-destination="${dest.name.toLowerCase()}">
-                                ${dest.name}
-                            </li>`
-                            )
-                            .join('')}
-                        </ul>
-        
-                        <h1 class="destination__title">${destination.name}</h1>
-                        <p class="destination__summary">${destination.description}</p>
-        
-                        <div class="summary__line"></div>
-        
-                        <div class="destination__statistics">
-                            <p class="destination__distance">Avg. distance <span>${destination.distance}</span></p>
-                            <p class="destination__time">Est. travel time <span>${destination.travel}</span></p>
-                        </div>
-                    </div>
+                    ${destinationContent(destination, destinationName)}
                 </div>
-            </section>
+            </section>`;
+            return;
+        }
+
+        // Fade out, update content and fade back in
+        destinationContainer.classList.add('fade-out');
+        setTimeout(() => {
+            destinationContainer.innerHTML = destinationContent(
+                destination,
+                destinationName
+            );
+            destinationContainer.classList.remove('fade-out');
+        }, 500);
+    };
+
+    const destinationContent = function (destination, destinationName) {
+        return `
+            <div class="destination__image--box">
+                <picture>
+                    <source srcset="${
+                        images[destinationName].webp
+                    }" type="image/webp" />
+                    <img class="destination__image"
+                        src="${images[destinationName].png}"
+                        alt="${destination.name}"
+                    />
+                </picture>
+            </div>
+        
+            <div class="destination__details">
+                <ul class="destination__list">${Object.values(destinations)
+                    .map(
+                        (dest) => `
+                        <li class="destination__item ${
+                            dest.name.toLowerCase() ===
+                            destinationName.toLowerCase()
+                                ? 'active'
+                                : ''
+                        }" data-destination="${dest.name.toLowerCase()}">
+                                ${dest.name}
+                        </li>`
+                    )
+                    .join('')}
+                </ul>
+        
+                <h1 class="destination__title">${destination.name}</h1>
+                    <p class="destination__summary">${destination.description}
+                    </p>
+        
+                    <div class="summary__line"></div>
+        
+                    <div class="destination__statistics">
+                        <p class="destination__distance">Avg. distance 
+                            <span>${destination.distance}</span> 
+                        </p>
+                        <p class="destination__time">Est. travel time 
+                            <span>${destination.travel}</span> 
+                        </p>
+                    </div>
+            </div>
         `;
     };
 
-    const handleDestinationClick = () => {
-        document.querySelector('main').addEventListener('click', e => {
+    (function handledDestinationClick() {
+        document.querySelector('main').addEventListener('click', (e) => {
             if (!e.target.classList.contains('destination__item')) return;
 
             const selectedDestination = e.target.dataset.destination;
@@ -79,8 +109,7 @@ const destinationView = function () {
 
             render(selectedDestination);
         });
-    };
-    handleDestinationClick();
+    })();
 
     return { render };
 };
