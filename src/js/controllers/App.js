@@ -5,8 +5,6 @@ import destinationView from '../views/destination-view.js';
 import crewView from '../views/crew-view.js';
 import technologyView from '../views/technology-view.js';
 
-
-
 const init = () => {
     Header.handleMenuButtonClicks();
     Header.handleNavLinksClick();
