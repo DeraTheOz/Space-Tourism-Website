@@ -73,7 +73,7 @@
     font-family: var(--barlow-condensed-regular);
 }
 
-.crew__slides {
+.dots__container {
     display: flex;
     align-items: center;
     gap: var(--space-40);
@@ -81,15 +81,15 @@
     margin-top: auto;
 }
 
-.slide {
-    width: 15px;
-    height: 15px;
+.dot {
+    width: 17px;
+    height: 17px;
     border-radius: 50%;
     background-color: var(--white);
-    opacity: 0.7;
+    opacity: 0.25;
 }
 
-.slide--active {
+.dot.active {
     opacity: 1;
 }
 
