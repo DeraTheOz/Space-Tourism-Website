@@ -1,6 +1,3 @@
-import destinationView from '../views/destination-view.js';
-import homeView from '../views/home-view.js';
-
 const Router = function () {
     const routes = {};
 
@@ -8,7 +5,7 @@ const Router = function () {
         routes[path] = handler;
     };
 
-    const navigateTo = path => {
+    const navigateTo = (path) => {
         if (!path) return;
         history.pushState({}, '', path);
         routes[path]();
@@ -22,7 +19,7 @@ const Router = function () {
 
     const init = () => {
         document.addEventListener('DOMContentLoaded', () => {
-            document.body.addEventListener('click', e => {
+            document.body.addEventListener('click', (e) => {
                 if (e.target.matches('[data-link]')) {
                     e.preventDefault();
                     navigateTo(e.target.getAttribute('href'));
