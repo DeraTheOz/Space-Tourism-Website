@@ -144,6 +144,7 @@
     .hero__container {
         grid-template-columns: 1fr;
         gap: var(--space-96);
+        text-align: center;
     }
 
     .hero__box,
