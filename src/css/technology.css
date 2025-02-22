@@ -42,6 +42,12 @@
     align-items: center;
     gap: var(--space-24);
     padding: var(--space-40) 0;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.technology__container.fade-out {
+    opacity: 0;
 }
 
 .technology__details {
@@ -70,7 +76,7 @@
     border-radius: 50%;
 }
 
-.technology__slide--active {
+.technology__slide.active {
     color: var(--blue-900);
     background-color: var(--white);
 }
