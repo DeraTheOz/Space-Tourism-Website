@@ -5,8 +5,8 @@ import imgVehicleMobile from '../../assets/technology/image-launch-vehicle-mobil
 import imgSpaceportPortrait from '../../assets/technology/image-spaceport-portrait.jpg';
 import imgSpaceportTablet from '../../assets/technology/image-spaceport-tablet.jpg';
 import imgSpaceportMobile from '../../assets/technology/image-spaceport-mobile.jpg';
-import imgCapsulePortrait from '../../assets/technology/image-space-capsule-mobile.jpg';
-import imgCapsuleTablet from '../../assets/technology/image-space-capsule-mobile.jpg';
+import imgCapsulePortrait from '../../assets/technology/image-space-capsule-portrait.jpg';
+import imgCapsuleTablet from '../../assets/technology/image-space-capsule-tablet.jpg';
 import imgCapsuleMobile from '../../assets/technology/image-space-capsule-mobile.jpg';
 
 import camelCaseName from '../utils/camelCase.js';
