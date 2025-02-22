@@ -8,7 +8,7 @@ import imageVictorWebp from '../../assets/crew/image-victor-glover.webp';
 import imageAnoushehPng from '../../assets/crew/image-anousheh-ansari.png';
 import imageAnoushehWebp from '../../assets/crew/image-anousheh-ansari.webp';
 
-import revertCamelCase from '../utils/revertCamelCase.js';
+import camelCaseName from '../utils/camelCase.js';
 
 const images = {
     douglasHurley: { png: imageDouglasPng, webp: imageDouglasWebp },
@@ -17,13 +17,10 @@ const images = {
     anoushehAnsari: { png: imageAnoushehPng, webp: imageAnoushehWebp }
 };
 
-const crew = dataModel.getCrew();
-console.log(crew['douglasHurley']);
-
 const crewView = function () {
-    const render = (crewName = 'douglasHurley') => {
-        console.log('Crew Name', crewName);
+    const crew = dataModel.getCrew();
 
+    const render = (crewName = 'douglasHurley') => {
         const main = document.querySelector('main');
         const crewContainer = document.querySelector('.crew__container');
 
@@ -34,7 +31,7 @@ const crewView = function () {
 
             main.innerHTML = `
             <section class="crew__hero">
-                <p class="crew__intro"><span class="crew__step">01</span> Pick your crew</p>
+                <p class="crew__intro"><span class="crew__step">02</span> Meet your crew</p>
                 
                 <div class="crew__container">
                     ${crewContent(crew, crewName)}
@@ -52,24 +49,24 @@ const crewView = function () {
     };
 
     const crewContent = function (crew, crewName) {
-        const memberName = revertCamelCase(crewName);
+        const member = crew[crewName];
 
         return ` 
             <div class="crew__details">
                 <div class="crew__details--box">
-                    <p class="crew__role">${crew[crewName].role}</p>
-                    <h1 class="crew__name">${memberName}</h1>
+                    <p class="crew__role">${member.role}</p>
+                    <h1 class="crew__name">${member.name}</h1>
                     <p class="crew__summary">
-                        ${crew[crewName].bio}
+                        ${member.bio}
                     </p>
                 </div>
 
-                <ul class="crew__slides">${Object.values(crew)
+                <ul class="dots__container">${Object.values(crew)
                     .map(
-                        (name) => `
-                        <li class="slide ${
-                            name === crew[crewName] ? 'slide--active' : ''
-                        }" data-name=${crewName}>
+                        (member) => `
+                        <li class="dot ${
+                            camelCaseName(member) === crewName ? 'active' : ''
+                        }" data-name=${camelCaseName(member)}>
                         </li>
                     `
                     )
@@ -83,7 +80,7 @@ const crewView = function () {
                     }" type="image/webp" />
                     <img class="crew__image"
                         src="${images[crewName].png}"
-                        alt="Crew Commander Douglas Hurley"
+                        alt="Crew Member ${member.name}"
                     />
                 </picture>
             </div>
@@ -92,14 +89,12 @@ const crewView = function () {
 
     (function handleCrewSwitch() {
         document.querySelector('main').addEventListener('click', (e) => {
-            if (!e.target.classList.contains('slide')) return;
+            if (!e.target.classList.contains('dot')) return;
 
-            const clickedSlide = e.target.dataset.name;
-            if (!clickedSlide) return;
+            const selectedCrew = e.target.dataset.name;
+            if (!selectedCrew) return;
 
-            console.log(clickedSlide);
-
-            render(clickedSlide);
+            render(selectedCrew);
         });
     })();
 
