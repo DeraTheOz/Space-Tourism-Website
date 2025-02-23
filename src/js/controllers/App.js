@@ -5,16 +5,32 @@ import destinationView from '../views/destination-view.js';
 import crewView from '../views/crew-view.js';
 import technologyView from '../views/technology-view.js';
 
+// const init = () => {
+//     Header.handleMenuButtonClicks();
+//     Header.handleNavLinksClick();
+
+//     Router.addRoute('/', homeView.render);
+//     Router.addRoute('/destination', destinationView.render);
+//     Router.addRoute('/crew', crewView.render);
+//     Router.addRoute('/technology', technologyView.render);
+//     Router.init();
+
+//     console.log('App Initialized 🚀');
+// };
+// init();
+
 const init = () => {
     Header.handleMenuButtonClicks();
     Header.handleNavLinksClick();
 
-    Router.addRoute('/', homeView.render);
-    Router.addRoute('/destination', destinationView.render);
-    Router.addRoute('/crew', crewView.render);
-    Router.addRoute('/technology', technologyView.render);
-    Router.init();
+    console.log('WINDOW', window);
+    window.app = {};
+    console.log('WINDOW.APP', window.app);
+    app.router = Router;
+    console.log('APP.ROUTER', app.router);
 
-    console.log('App Initialized 🚀');
+    window.addEventListener('DOMContentLoaded', () => {
+        app.router.init();
+    });
 };
 init();
