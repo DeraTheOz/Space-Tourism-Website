@@ -1,0 +1,57 @@
+.error {
+    background-image: url('../assets/destination/background-destination-desktop.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#main {
+    padding: 0;
+}
+
+.error__container {
+    max-width: 69.735rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    padding: 0 var(--space-24);
+    margin: 0 auto;
+}
+
+.error__img--box {
+    max-width: 30rem;
+}
+
+.error__title {
+    font-family: var(--bellefair-regular);
+    font-weight: var(--weight-regular);
+    font-size: var(--text-32);
+    text-transform: uppercase;
+}
+
+.error__summary {
+    margin: var(--space-12) 0 var(--space-80);
+}
+
+.error__container .cta-btn {
+    margin: 0;
+}
+
+/* 1100px-68.75em */
+@media screen and (max-width: 68.75em) {
+    .error__container {
+        flex-direction: column;
+    }
+
+    #main {
+        padding-bottom: var(--space-128);
+    }
+}
+
+/* // 600px-37.5em // */ /* // Mobile */
+@media screen and (max-width: 37.5em) {
+    #main {
+        padding-bottom: var(--space-64);
+    }
+}
