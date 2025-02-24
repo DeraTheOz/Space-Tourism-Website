@@ -7,7 +7,6 @@ import imageVictorPng from '../../assets/crew/image-victor-glover.png';
 import imageVictorWebp from '../../assets/crew/image-victor-glover.webp';
 import imageAnoushehPng from '../../assets/crew/image-anousheh-ansari.png';
 import imageAnoushehWebp from '../../assets/crew/image-anousheh-ansari.webp';
-
 import camelCaseName from '../utils/camelCase.js';
 
 const images = {
