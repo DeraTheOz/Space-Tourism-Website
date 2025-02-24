@@ -1,109 +1,68 @@
-// const Router = function () {
-//     const routes = {};
-
-//     const addRoute = (path, handler) => {
-//         routes[path] = handler;
-//     };
-
-//     const navigateTo = (path) => {
-//         if (!path) return;
-//         history.pushState({}, '', path);
-//         routes[path]();
-//     };
-
-//     const handlePopState = () => {
-//         const path = window.location.pathname;
-//         if (!path) return;
-//         routes[path]();
-//     };
-
-//     const init = () => {
-//         document.addEventListener('DOMContentLoaded', () => {
-//             document.body.addEventListener('click', (e) => {
-//                 if (e.target.matches('[data-link]')) {
-//                     e.preventDefault();
-//                     navigateTo(e.target.getAttribute('href'));
-//                 }
-//             });
-
-//             window.addEventListener('popstate', handlePopState);
-//             handlePopState(); // Initialize on first load
-//         });
-//     };
-
-//     return { addRoute, navigateTo, init };
-// };
-
-// export default Router();
-
-/**
- * Handles navigation between pages
- * addToHistory  keeps track of routes for forward and backwards button clicks
- */
-
+import * as Header from '../utils/header-actions.js';
+import errorView from '../views/error-view.js';
 import homeView from '../views/home-view.js';
 import destinationView from '../views/destination-view.js';
 import crewView from '../views/crew-view.js';
 import technologyView from '../views/technology-view.js';
 
-console.log('HOME VIEW', homeView.render);
+const error404 = errorView.render;
+const home = homeView.render;
+const destination = destinationView.render;
+const crew = crewView.render;
+const technology = technologyView.render;
 
 const Router = function () {
     const routes = {
-        '/': homeView.render,
-        '/destination': destinationView.render,
-        '/crew': crewView.render,
-        '/technology': technologyView.render
+        '/404': error404,
+        '/': home,
+        '/destination': destination,
+        '/crew': crew,
+        '/technology': technology
     };
 
-    // const urlLocationHandler = () => {
-    //     const location = window.location.pathname;
-    //     console.log('LOCATION', location);
-    // };
-
     const init = () => {
+        handleUrlPath(); // Initialize on first load
+        Header.handleMenuButtonClicks();
+        Header.handleNavLinksClick();
+
         document.body.addEventListener('click', (e) => {
-            if (e.target.matches('[data-link]')) {
+            const link = e.target.closest('[data-link]');
+            if (link) {
                 e.preventDefault();
-                const url = e.target.getAttribute('href');
-                console.log('URL', url);
+                const url = link.getAttribute('href');
                 navigateTo(url);
-                console.log('ROUTE', routes);
             }
         });
 
         window.addEventListener('popstate', (e) => {
-            console.log('E.STATE.ROUTE', e.state.route);
-            navigateTo(e.state.route, false);
+            const path = e.state?.route || window.location.pathname;
+            navigateTo(routes.hasOwnProperty(path) ? path : '/404', false);
         });
     };
 
-    const navigateTo = (route, addToHistory = true) => {
-        if (addToHistory) {
-            history.pushState({ route }, null, route);
-            console.log('ROUTE', route, addToHistory);
-        }
+    const handleUrlPath = () => {
+        const url = window.location.pathname;
 
-        switch (route) {
-            case '/':
-                // code
-                break;
-
-            case '/destination':
-                // code
-                break;
-
-            case '/crew':
-                // code
-                break;
-
-            case '/technology':
-                // code
-                break;
+        if (routes[url]) {
+            history.replaceState({ route: url }, null, url);
+            routes[url]();
+        } else {
+            navigateTo('/404');
         }
     };
 
-    return { init };
+    const navigateTo = (route, addToHistory = true) => {
+        if (!routes[route]) route = '/404';
+
+        if (addToHistory) {
+            history.pushState({ route }, null, route);
+        }
+
+        routes[route]();
+        Header.updateActiveLink();
+    };
+
+    return { init, navigateTo };
 };
 
 export default Router();
