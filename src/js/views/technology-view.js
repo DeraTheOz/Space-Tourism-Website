@@ -8,7 +8,6 @@ import imgSpaceportMobile from '../../assets/technology/image-spaceport-mobile.j
 import imgCapsulePortrait from '../../assets/technology/image-space-capsule-portrait.jpg';
 import imgCapsuleTablet from '../../assets/technology/image-space-capsule-tablet.jpg';
 import imgCapsuleMobile from '../../assets/technology/image-space-capsule-mobile.jpg';
-
 import camelCaseName from '../utils/camelCase.js';
 
 const images = {
