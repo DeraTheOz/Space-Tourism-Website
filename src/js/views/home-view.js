@@ -26,13 +26,8 @@ const homeView = function () {
 
         // Route to destination
         const exploreBtn = document.querySelector('.hero__btn');
-        const navLinks = document.querySelectorAll('.nav__link');
-
         exploreBtn.addEventListener('click', () => {
             Router.navigateTo('/destination');
-
-            navLinks.forEach(item => item.classList.remove('active'));
-            navLinks[1].classList.add('active');
         });
     };
 
