@@ -5,6 +5,10 @@
     background-position: center;
 }
 
+.crew #main {
+    padding: 0 var(--space-64);
+}
+
 /* CREW */
 .crew__hero {
     max-width: 69.375rem;
@@ -87,6 +91,7 @@
     border-radius: 50%;
     background-color: var(--white);
     opacity: 0.25;
+    cursor: pointer;
 }
 
 .dot.active {
@@ -106,6 +111,10 @@
 @media screen and (max-width: 68.75em) {
     .crew {
         background-image: url('../../src/assets/crew/background-crew-tablet.jpg');
+    }
+
+    .crew #main {
+        padding: 0;
     }
 
     .crew__intro {
@@ -147,10 +156,6 @@
 
 /* // 600px-37.5em // */ /* // Mobile */
 @media screen and (max-width: 37.5em) {
-    #main {
-        padding: 0;
-    }
-
     .crew {
         background-image: url('../assets/crew/background-crew-mobile.jpg');
     }
