@@ -31,6 +31,7 @@ const errorView = function () {
                     </div>
                 </section>
             `;
+            
 
             // Route to home
             const backBtn = document.querySelector('.back-btn');
