@@ -1,11 +1,11 @@
 .error {
-    background-image: url('../assets/destination/background-destination-desktop.jpg');
+    background-image: url('../assets/technology/background-technology-desktop.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
-#main {
+.error #main {
     padding: 0;
 }
 
@@ -15,6 +15,7 @@
     align-items: center;
     justify-content: space-around;
     text-align: center;
+    color: var(--blue-300);
     padding: 0 var(--space-24);
     margin: 0 auto;
 }
@@ -27,6 +28,7 @@
     font-family: var(--bellefair-regular);
     font-weight: var(--weight-regular);
     font-size: var(--text-32);
+    color: var(--white);
     text-transform: uppercase;
 }
 
@@ -40,18 +42,25 @@
 
 /* 1100px-68.75em */
 @media screen and (max-width: 68.75em) {
-    .error__container {
-        flex-direction: column;
+    .error {
+        background-image: url('../assets/technology/background-technology-tablet.jpg');
+    }
+    .error #main {
+        padding-bottom: var(--space-128);
     }
 
-    #main {
-        padding-bottom: var(--space-128);
+    .error__container {
+        flex-direction: column;
     }
 }
 
 /* // 600px-37.5em // */ /* // Mobile */
 @media screen and (max-width: 37.5em) {
-    #main {
+    .error {
+        background-image: url('../assets/technology/background-technology-mobile.jpg');
+    }
+
+    .error #main {
         padding-bottom: var(--space-64);
     }
 }
