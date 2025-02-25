@@ -5,6 +5,10 @@
     background-position: center;
 }
 
+.destination #main {
+    padding: 0 var(--space-64);
+}
+
 /* DESTINATION */
 .destination__hero {
     max-width: 69.375rem;
@@ -119,7 +123,7 @@
 
 .destination__distance span,
 .destination__time span {
-    font-size: var(--text-28);
+    font-size: 1.438rem;
     font-family: var(--bellefair-regular);
     color: var(--white);
 }
@@ -128,6 +132,10 @@
 @media screen and (max-width: 68.75em) {
     .destination {
         background-image: url('../assets/destination/background-destination-tablet.jpg');
+    }
+
+    .destination #main {
+        padding: 0;
     }
 
     .destination__intro {
