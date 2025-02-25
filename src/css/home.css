@@ -121,7 +121,7 @@
 
 /* 1200px-75em */
 @media screen and (max-width: 75em) {
-    #main {
+    .home #main {
         padding: 0 var(--space-64);
     }
 }
@@ -132,10 +132,6 @@
         background-image: url('../assets/home/background-home-tablet.jpg');
     }
 
-    #main {
-        padding: 0 var(--space-24);
-    }
-
     .hero {
         text-align: center;
         padding: 0;
@@ -144,12 +140,10 @@
     .hero__container {
         grid-template-columns: 1fr;
         gap: var(--space-96);
-        text-align: center;
     }
 
     .hero__box,
     .hero__button--box {
-        padding: 0 var(--space-24);
         margin: 0 auto;
     }
 }
@@ -160,8 +154,8 @@
         background-image: url('../assets/home/background-home-mobile.jpg');
     }
 
-    #main {
-        padding: 0 var(--space-16);
+    .home #main {
+        padding: 0 var(--space-24);
     }
 
     .hero__container {
