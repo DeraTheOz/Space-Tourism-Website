@@ -5,7 +5,7 @@
     background-position: center;
 }
 
-#main {
+.technology #main {
     padding: 0;
     padding-left: 9rem;
 }
@@ -105,9 +105,9 @@
     margin-left: auto;
 }
 
-/* 1180px-73.75em */
-@media screen and (max-width: 73.75em) {
-    #main {
+/* 1200px-75em */
+@media screen and (max-width: 75em) {
+    .technology #main {
         padding-left: var(--space-64);
     }
 }
@@ -118,7 +118,7 @@
         background-image: url('../../src/assets/technology/background-technology-tablet.jpg');
     }
 
-    #main {
+    .technology #main {
         padding: 0;
     }
 
@@ -150,6 +150,7 @@
         flex-direction: row;
         justify-content: center;
         gap: var(--space-24);
+        margin-top: var(--space-24);
     }
 
     .technology__role {
