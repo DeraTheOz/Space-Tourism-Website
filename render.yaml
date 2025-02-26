@@ -1,10 +1,14 @@
 version: 1
 services:
-  - type: web
-    name: your-project-name
-    env: static
-    staticPublishPath: ./dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+    - type: web
+      name: your-project-name
+      env: static
+      staticPublishPath: ./dist
+      routes:
+          - type: rewrite
+            source: /*
+            destination: /index.html
+      redirects:
+    - source: /.*
+      destination: /index.html
+      status: 200
