@@ -40,11 +40,26 @@ const Router = function () {
         });
     };
 
+    // const handleUrlPath = () => {
+    //     const url = window.location.pathname;
+
+    //     if (routes[url]) {
+    //         history.replaceState({ route: url }, null, url);
+    //         routes[url]();
+    //     } else {
+    //         navigateTo('/404');
+    //     }
+    // };
+
     const handleUrlPath = () => {
         const url = window.location.pathname;
 
         if (routes[url]) {
             history.replaceState({ route: url }, null, url);
+
+            // Skip re-rendering homepage
+            if (url === '/' && document.body.classList.contains('home')) return;
+
             routes[url]();
         } else {
             navigateTo('/404');
