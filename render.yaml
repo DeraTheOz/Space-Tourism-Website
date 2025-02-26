@@ -1,0 +1,22 @@
+services:
+    - type: web
+      name: dera-space-tourism
+      runtime: static
+      buildCommand: npm run build
+      staticPublishPath: ./dist
+      headers:
+          - path: /**/*.jpg
+            name: Cache-Control
+            value: public, max-age=86400
+          - path: /**/*.png
+            name: Cache-Control
+            value: public, max-age=86400
+          - path: /**/*.webp
+            name: Cache-Control
+            value: public, max-age=86400
+          - path: /**/*.svg
+            name: Cache-Control
+            value: public, max-age=86400
+          - path: /*
+            name: X-Frame-Options
+            value: sameorigin
