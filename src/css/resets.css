@@ -147,3 +147,12 @@ body {
     height: 21px;
     fill: var(--blue-300);
 }
+
+.lazy-img {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.lazy-img[src] {
+    opacity: 1;
+}
