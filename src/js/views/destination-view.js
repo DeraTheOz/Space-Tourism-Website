@@ -23,10 +23,8 @@ const destinationView = function () {
         const destination =
             destinations[destinationName.toLowerCase()] || destinations['moon'];
 
-        document.body.className = 'destination';
-
         if (!destinationContainer) {
-            // document.body.className = 'destination';
+            document.body.className = 'destination';
 
             main.innerHTML = `
             <section class="destination__hero">
