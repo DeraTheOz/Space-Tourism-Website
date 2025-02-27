@@ -14,6 +14,7 @@
     },
     "dependencies": {
         "core-js": "^3.40.0",
-        "regenerator-runtime": "^0.14.1"
+        "regenerator-runtime": "^0.14.1",
+        "svgo": "^3.3.2"
     }
 }
