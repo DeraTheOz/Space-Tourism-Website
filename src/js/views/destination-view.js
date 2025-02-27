@@ -18,40 +18,6 @@ const images = {
 const destinations = dataModel.getDestinations();
 
 const destinationView = function () {
-    const lazyLoadImages = () => {
-        const images = document.querySelectorAll('.lazy-img');
-
-        const observer = new IntersectionObserver(
-            (entries, observer) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        const source = img.previousElementSibling;
-
-                        if (img.dataset.src) {
-                            img.src = img.dataset.src;
-                            img.removeAttribute('data-src');
-                        }
-
-                        if (
-                            source &&
-                            source.tagName === 'SOURCE' &&
-                            source.dataset.srcset
-                        ) {
-                            source.srcset = source.dataset.srcset;
-                            source.removeAttribute('data-srcset');
-                        }
-
-                        observer.unobserve(img);
-                    }
-                });
-            },
-            { rootMargin: '200px' }
-        );
-
-        images.forEach((img) => observer.observe(img));
-    };
-
     const render = (destinationName = 'moon') => {
         const main = document.querySelector('main');
         const destinationContainer = document.querySelector(
@@ -74,8 +40,6 @@ const destinationView = function () {
                     ${destinationContent(destination, destinationName)}
                 </div>
             </section>`;
-
-            lazyLoadImages();
             return;
         }
 
@@ -94,13 +58,12 @@ const destinationView = function () {
         return `
             <div class="destination__image--box">
                 <picture>
-                    <source data-srcset="${
+                    <source srcset="${
                         images[destinationName].webp
                     }" type="image/webp" />
                     <img class="destination__image lazy-img"
-                        data-src="${images[destinationName].png}"
+                        src="${images[destinationName].png}"
                         alt="${destination.name}"
-                        loading="lazy"
                     />
                 </picture>
             </div>

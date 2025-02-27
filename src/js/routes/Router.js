@@ -21,7 +21,7 @@ const Router = function () {
     };
 
     const init = () => {
-        handleUrlPath(); // Initialize on first load
+        // handleUrlPath(); // Initialize on first load
         Header.handleMenuButtonClicks();
         Header.handleNavLinksClick();
 
