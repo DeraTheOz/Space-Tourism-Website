@@ -1,5 +1,4 @@
 import Router from '../routes/Router.js';
-import dataModel from '../models/data-model.js';
 import imgError from '../../assets/shared/error-image.avif';
 
 const errorView = function () {
@@ -15,7 +14,7 @@ const errorView = function () {
                     <div class="error__img--box">
                         <img
                             src="${imgError}"
-                            alt="404 Page not found"
+                            alt="Page not found"
                         />
                         <h1 class="error__title">Lost in Space</h1>
                         <p class="error__summary">
