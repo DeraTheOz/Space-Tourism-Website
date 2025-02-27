@@ -1,5 +1,5 @@
 .home {
-    background-image: url('../assets/home/background-home-desktop.jpg');
+    background-image: url('../assets/home/background-home-desktop.avif');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -129,7 +129,7 @@
 /* 1100px-68.75em */
 @media screen and (max-width: 68.75em) {
     .home {
-        background-image: url('../assets/home/background-home-tablet.jpg');
+        background-image: url('../assets/home/background-home-tablet.avif');
     }
 
     .hero {
@@ -151,7 +151,7 @@
 /* // 600px-37.5em // */ /* // Mobile */
 @media screen and (max-width: 37.5em) {
     .home {
-        background-image: url('../assets/home/background-home-mobile.jpg');
+        background-image: url('../assets/home/background-home-mobile.avif');
     }
 
     .home #main {
