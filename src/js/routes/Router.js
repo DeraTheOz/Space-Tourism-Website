@@ -21,7 +21,7 @@ const Router = function () {
     };
 
     const init = () => {
-        // handleUrlPath(); // Initialize on first load
+        handleUrlPath(); // Initialize on first load
         Header.handleMenuButtonClicks();
         Header.handleNavLinksClick();
 
@@ -58,7 +58,7 @@ const Router = function () {
             history.replaceState({ route: url }, null, url);
 
             // Skip re-rendering homepage
-            if (url === '/' && document.body.classList.contains('home')) return;
+            // if (url === '/' && document.body.classList.contains('home')) return;
 
             routes[url]();
         } else {
