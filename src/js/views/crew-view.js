@@ -1,19 +1,15 @@
 import dataModel from '../models/data-model.js';
-import imageDouglasPng from '../../assets/crew/image-douglas-hurley.png';
-import imageDouglasWebp from '../../assets/crew/image-douglas-hurley.webp';
-import imageMarkPng from '../../assets/crew/image-mark-shuttleworth.png';
-import imageMarkWebp from '../../assets/crew/image-mark-shuttleworth.webp';
-import imageVictorPng from '../../assets/crew/image-victor-glover.png';
-import imageVictorWebp from '../../assets/crew/image-victor-glover.webp';
-import imageAnoushehPng from '../../assets/crew/image-anousheh-ansari.png';
-import imageAnoushehWebp from '../../assets/crew/image-anousheh-ansari.webp';
+import imageDouglas from '../../assets/crew/image-douglas-hurley.avif';
+import imageMark from '../../assets/crew/image-mark-shuttleworth.avif';
+import imageVictor from '../../assets/crew/image-victor-glover.avif';
+import imageAnousheh from '../../assets/crew/image-anousheh-ansari.avif';
 import camelCaseName from '../utils/camelCase.js';
 
 const images = {
-    douglasHurley: { png: imageDouglasPng, webp: imageDouglasWebp },
-    markShuttleworth: { png: imageMarkPng, webp: imageMarkWebp },
-    victorGlover: { png: imageVictorPng, webp: imageVictorWebp },
-    anoushehAnsari: { png: imageAnoushehPng, webp: imageAnoushehWebp }
+    douglasHurley: imageDouglas,
+    markShuttleworth: imageMark,
+    victorGlover: imageVictor,
+    anoushehAnsari: imageAnousheh
 };
 
 const crewView = function () {
@@ -73,15 +69,10 @@ const crewView = function () {
                 </ul>
             </div>
             <div class="crew__image--box">
-                <picture>
-                    <source srcset="${
-                        images[crewName].webp
-                    }" type="image/webp" />
-                    <img class="crew__image"
-                        src="${images[crewName].png}"
-                        alt="Crew Member ${member.name}"
-                    />
-                </picture>
+                <img class="crew__image"
+                    src="${images[crewName]}"
+                    alt="Crew Member ${member.name}"
+                />
             </div>
         `;
     };

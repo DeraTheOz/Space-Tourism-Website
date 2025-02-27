@@ -1,18 +1,14 @@
 import dataModel from '../models/data-model.js';
-import imageMoonPng from '../../assets/destination/image-moon.png';
-import imageMoonWebp from '../../assets/destination/image-moon.webp';
-import imageMarsPng from '../../assets/destination/image-mars.png';
-import imageMarsWebp from '../../assets/destination/image-mars.webp';
-import imageEuropaPng from '../../assets/destination/image-europa.png';
-import imageEuropaWebp from '../../assets/destination/image-europa.webp';
-import imageTitanPng from '../../assets/destination/image-titan.png';
-import imageTitanWebp from '../../assets/destination/image-titan.webp';
+import imageMoon from '../../assets/destination/image-moon.avif';
+import imageMars from '../../assets/destination/image-mars.avif';
+import imageEuropa from '../../assets/destination/image-europa.avif';
+import imageTitan from '../../assets/destination/image-titan.avif';
 
 const images = {
-    moon: { png: imageMoonPng, webp: imageMoonWebp },
-    mars: { png: imageMarsPng, webp: imageMarsWebp },
-    europa: { png: imageEuropaPng, webp: imageEuropaWebp },
-    titan: { png: imageTitanPng, webp: imageTitanWebp }
+    moon: imageMoon,
+    mars: imageMars,
+    europa: imageEuropa,
+    titan: imageTitan
 };
 
 const destinations = dataModel.getDestinations();
@@ -57,15 +53,10 @@ const destinationView = function () {
     const destinationContent = function (destination, destinationName) {
         return `
             <div class="destination__image--box">
-                <picture>
-                    <source srcset="${
-                        images[destinationName].webp
-                    }" type="image/webp" />
-                    <img class="destination__image lazy-img"
-                        src="${images[destinationName].png}"
-                        alt="${destination.name}"
-                    />
-                </picture>
+                <img class="destination__image"
+                    src="${images[destinationName]}"
+                    alt="${destination.name}"
+                />
             </div>
         
             <div class="destination__details">

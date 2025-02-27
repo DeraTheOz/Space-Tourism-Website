@@ -1,6 +1,6 @@
 import Router from '../routes/Router.js';
 import dataModel from '../models/data-model.js';
-import imgError from '../../assets/shared/error-404.png';
+import imgError from '../../assets/shared/error-image.avif';
 
 const errorView = function () {
     const render = () => {
@@ -31,7 +31,6 @@ const errorView = function () {
                     </div>
                 </section>
             `;
-            
 
             // Route to home
             const backBtn = document.querySelector('.back-btn');
