@@ -7,8 +7,7 @@ const init = () => {
         Router.navigateTo('/destination');
     });
 
-    window.addEventListener('DOMContentLoaded', () => {
-        Router.init();
-    });
+    Router.init();
+    // window.addEventListener('DOMContentLoaded', () => {});
 };
 init();
