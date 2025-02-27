@@ -3,6 +3,7 @@ import Router from '../routes/Router.js';
 const homeView = function () {
     const render = () => {
         const main = document.querySelector('main');
+        document.body.className = 'home';
 
         main.innerHTML = `
         <section class="hero">
